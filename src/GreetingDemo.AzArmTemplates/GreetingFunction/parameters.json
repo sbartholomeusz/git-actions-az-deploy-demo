@@ -1,0 +1,45 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subscriptionId": {
+            "value": "b5807c0a-337d-46ac-97e4-8fec9853ef4a"
+        },
+        "name": {
+            "value": "greetingservice"
+        },
+        "location": {
+            "value": "Australia Southeast"
+        },
+        "hostingPlanName": {
+            "value": "ASP-gitactionsdeployfuncdemo-8638"
+        },
+        "serverFarmResourceGroup": {
+            "value": "git-actions-deploy-func-demo"
+        },
+        "alwaysOn": {
+            "value": false
+        },
+        "storageAccountName": {
+            "value": "storageaccountgitac91b1"
+        },
+        "sku": {
+            "value": "Dynamic"
+        },
+        "skuCode": {
+            "value": "Y1"
+        },
+        "workerSize": {
+            "value": "0"
+        },
+        "workerSizeId": {
+            "value": "0"
+        },
+        "numberOfWorkers": {
+            "value": "1"
+        },
+        "use32BitWorkerProcess": {
+            "value": true
+        }
+    }
+}
