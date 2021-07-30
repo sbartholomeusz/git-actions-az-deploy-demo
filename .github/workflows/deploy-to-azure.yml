@@ -56,22 +56,12 @@ jobs:
        # Makes source code accessible via $github.workspace
        - name: 'Checking out source code ...'
          uses: actions/checkout@v2
- 
-       # Authentication
-       # Set up the following secrets in your repository: AZURE_CREDENTIALS
-       # For details see https://docs.microsoft.com/en-us/azure/developer/github/connect-from-azure
-       - name: 'Login to Azure'
-         uses: azure/login@v1
-         with:
-           creds: ${{ secrets.AZURE_CREDENTIALS }}
-           enable-AzPSSession: true
 
        - name: 'Setup .NET Environment'
          uses: actions/setup-dotnet@v1
          with:
            dotnet-version: ${{ env.DOTNET_VERSION }}
-
-       # publish code
+       
        - name: 'Build and package code'
          shell: bash
          run: |
@@ -82,6 +72,7 @@ jobs:
            mkdir ${{ env.BUILD_OUTPUT_PATH }}
            zip -r ${{ env.BUILD_OUTPUT_PATH }}/${{ env.BUILD_PACKAGE_NAME }} .
        
+       # Upload the code artifact, this will be used later
        - name: 'Package Azure Function release build'
          uses: actions/upload-artifact@v2
          with:
